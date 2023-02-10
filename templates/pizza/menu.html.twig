@@ -1,0 +1,11 @@
+{% block body %}
+{% for categories in categorie %}
+    <h1>{{ categories.naam }}</h1>
+    {% for pizzas in categories.getpizzas %}
+        {{ pizzas.naam }}<br>
+    {% endfor %}
+{% endfor %}
+{% endblock %}
+<button>
+<a href="/add/category">categorie toevoegen</a>
+</button>

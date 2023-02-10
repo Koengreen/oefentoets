@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PizzaController!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px/1.5 sans-serif;
+        }
+
+        .example-wrapper code {
+            background: #F5F5F5;
+            padding: 2px 6px;
+        }
+    </style>
+
+
+    <div class="example-wrapper">
+        <a href="/menu">menu</a>
+        {% for klanten in klant %}
+           <h1> {{ klanten.naam }}</h1>
+            {% for bestelling in klanten.getbestelling %}
+                <h3>{{ bestelling.datum }}</h3>
+                {% for bestelregel in bestelling.bestelregel %}
+                    {{ bestelregel.aantal }}
+                    {{ bestelregel.pizza.naam }}<br>
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+
+    </div>
+{% endblock %}
